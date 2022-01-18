@@ -3,6 +3,7 @@ const app = express();
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 
+const port = process.env.PORT || 3000;
 
 // override with POST having ?_method=DELETE or PUT
 app.use(methodOverride('_method'))
@@ -111,4 +112,4 @@ app.delete('/diary/delete/:id', (req, res) => {
     }).catch(err => console.log(err));
 });
 // Listen to server
-app.listen(5000, () => console.log("server is running"));
+app.listen(port, () => console.log("server is running"));
